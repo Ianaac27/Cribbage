@@ -65,9 +65,9 @@ const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 //=============================================================================== COUNTING POINTS ===========================================================================//
 //Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
 
-var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Spades", type: "Queen", value: 10, order:12, topcard: false},{suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Clubs", type: "Four", value: 4, order:4, topcard: true}]
+var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Spades", type: "Queen", value: 10, order:12, topcard: false},{suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Hearts", type: "Eight", value: 8, order:8, topcard: true}]
 
-// console.log(sampleHand);
+console.log("sample hand ", sampleHand);
 
 function countHand(hand) {
     let playerPointsHand = 0;
@@ -229,7 +229,6 @@ function countingPairs(hand, playerPointsHand) {
 //Check if hand holds a Jack matching the same suit as the topcard
 
 function checkKnobs(hand, playerPointsHand) {
-    //check for card type, suit, and topcard
     let jackSuit = []
     let topSuit = []    
 
@@ -238,14 +237,14 @@ function checkKnobs(hand, playerPointsHand) {
         var cardSuit = card.suit;
         var topCard = card.topcard;
 
-        if (topCard === true) { topSuit.push(cardSuit)} else return;
-        if (cardType === "Jack") { jackSuit.push(cardSuit)} else return;
+        if (topCard === true) { topSuit.push(cardSuit)};
+        if (cardType === "Jack") { jackSuit.push(cardSuit)};
     });
    
     if (jackSuit[0] === topSuit[0]) { playerPointsHand += 1;}
-    if (jackSuit[1] === topSuit[0]) { playerPointsHand += 1;}
-    if (jackSuit[2] === topSuit[0]) { playerPointsHand += 1;}
-    if (jackSuit[3] === topSuit[0]) { playerPointsHand += 1;}
+    else if (jackSuit[1] === topSuit[0]) { playerPointsHand += 1;}
+    else if (jackSuit[2] === topSuit[0]) { playerPointsHand += 1;}
+    else if (jackSuit[3] === topSuit[0]) { playerPointsHand += 1;}
 
     console.log("knobs ", playerPointsHand)
 
@@ -274,7 +273,7 @@ function checkFlush(hand, playerPointsHand) {
     
 }
 
-// countHand(sampleHand)
+countHand(sampleHand)
 
 // ========================================================================== START GAME =================================================================================== //
 
@@ -292,22 +291,19 @@ function shuffleDeck (fullDeck) {
     }
 
 function dealHands(shuffledCards) {       
-    
-    let playerHand = shuffledCards.slice(0,5); //Sample random hand 
-
-    // let playerHand = shuffledCards.slice(0,6);
-    // let computerHand = shuffledCards.slice(6,12);
-    // let remainingCards = shuffledCards.slice(12,52);
+    let playerHand = shuffledCards.slice(0,6);
+    let computerHand = shuffledCards.slice(6,12);
+    let remainingCards = shuffledCards.slice(12,52);
 
     console.log("Player Hand ", playerHand, playerHand.length)
-    // console.log("Computer Hand ", computerHand, computerHand.length)
-    // console.log("Remaining Cards ", remainingCards, remainingCards.length)
+    console.log("Computer Hand ", computerHand, computerHand.length)
+    console.log("Remaining Cards ", remainingCards, remainingCards.length)
 
-    countHand(playerHand)
+    // countHand(playerHand)
 
 }
 
-shuffleDeck(fullDeck)
+// shuffleDeck(fullDeck)
 
 
 //========================================================================= NOTES =============================================================================================//
