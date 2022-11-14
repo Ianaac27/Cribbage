@@ -119,24 +119,76 @@ function countingFifteens(hand, playerPointsHand) {
 
     //2 points or each 15
     playerPointsHand += (fifteens.length*2)
-    // console.log("15 ", playerPointsHand)
+    console.log("15 ", playerPointsHand)
 
     countingRuns(hand,playerPointsHand)
 }
 
 //----------------------------- COUNTING ALL RUNS IN HAND ----------------------------
 function countingRuns(hand,playerPointsHand) {
-    let typeArr = []
-    let runs = [];
-
+    let orderArr = []
     hand.forEach(function (card) {
-        var cardType = card.type;
-        typeArr.push(cardType);
+        var cardOrder = card.order;
+        orderArr.push(cardOrder);
         });
+    orderArr.sort(function(a, b){return a-b})
          
-    console.log("type array ", typeArr)
+    // console.log("order array ", orderArr)
 
-    // console.log("run ", playerPointsHand)
+    //Combinations for a run of THREE
+    if (orderArr[0] < orderArr[1] < orderArr[2] && (orderArr[2] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 3;
+        console.log("run1 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[1] < orderArr[3] && (orderArr[3] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 3;
+        console.log("run2 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[1] < orderArr[4] && (orderArr[4] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 3;
+        console.log("run3 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[2] < orderArr[3] && (orderArr[3] - orderArr[2] === 1) && (orderArr[2] - orderArr[0] === 1)) { playerPointsHand += 3;
+        console.log("run4 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[2] < orderArr[4] && (orderArr[4] - orderArr[2] === 1) && (orderArr[2] - orderArr[0] === 1)) { playerPointsHand += 3;
+        console.log("run5 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[0] === 1)) { playerPointsHand += 3;
+        console.log("run6 ", playerPointsHand)
+    }
+    if (orderArr[1] < orderArr[2] < orderArr[3] && (orderArr[3] - orderArr[2] === 1) && (orderArr[2] - orderArr[1] === 1)) { playerPointsHand += 3;
+        console.log("run7 ", playerPointsHand)
+    }
+    if (orderArr[1] < orderArr[2] < orderArr[4] && (orderArr[4] - orderArr[2] === 1) && (orderArr[2] - orderArr[1] === 1)) { playerPointsHand += 3;
+        console.log("run8 ", playerPointsHand)
+    }
+    if (orderArr[1] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[1] === 1)) { playerPointsHand += 3;
+        console.log("run9 ", playerPointsHand)
+    }
+    if (orderArr[2] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[2] === 1)) { playerPointsHand += 3;
+        console.log("run10 ", playerPointsHand)
+    }
+
+    //Combinations for a run of FOUR
+    if (orderArr[0] < orderArr[1] < orderArr[2] < orderArr[3] && (orderArr[3] - orderArr[2] === 1) && (orderArr[2] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 4;
+        console.log("run11 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[1] < orderArr[2] < orderArr[4] && (orderArr[4] - orderArr[2] === 1) && (orderArr[2] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 4;
+        console.log("run12 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[1] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 4;
+        console.log("run13 ", playerPointsHand)
+    }
+    if (orderArr[0] < orderArr[2] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[2] === 1) && (orderArr[2] - orderArr[0] === 1)) { playerPointsHand += 4;
+        console.log("run14 ", playerPointsHand)
+    }
+    if (orderArr[1] < orderArr[2] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[2] === 1) && (orderArr[2] - orderArr[1] === 1)) { playerPointsHand += 4;
+        console.log("run15 ", playerPointsHand)
+    }
+
+    //Combinations for a run of FIVE
+    if (orderArr[0] < orderArr[1] < orderArr[2] < orderArr[3] < orderArr[4] && (orderArr[4] - orderArr[3] === 1) && (orderArr[3] - orderArr[2] === 1) && (orderArr[2] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 5;
+        console.log("run16 ", playerPointsHand)
+    }
+
 }
 
 //Pairs
