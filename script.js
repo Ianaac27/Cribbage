@@ -1,4 +1,4 @@
-//Cards {suit, type, value, image1, image 2}
+//===========================================================  Deck of Cards {suit, type, value, image1, image 2} ================================================================//
 const cardsHearts = [
     {suit: "Hearts", type: "Ace", value: 1},
     {suit: "Hearts", type: "Two", value: 2},
@@ -62,113 +62,61 @@ const cardsClubs = [
 
 const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 
-//Counting Points
+//=============================================================================== Counting Points ===========================================================================//
 //Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
 
 var sampleHand = [{suit: "Clubs", type: "Five", value: 5}, {suit: "Hearts", type: "Five", value: 5},{suit: "Clubs", type: "King", value: 10},{suit: "Spades", type: "Six", value: 6},{suit: "Spades", type: "Four", value: 4}]
 
-//15's
+// --------------------- Counting all 15's in hand ---------------------------- //
+//If the sum of any value is 15, give the player 2 points for each 15 counted
+
 function countingFifteens(hand) {
-    // if the sum of any value is 15, give the player 2 points for each 15 counted
     let playerPoints = 0;
     let valueArr = []
-    let fifteens = [];
-    
+    let fifteens = [];    
     hand.forEach(function (card) {
         var cardValue = card.value;
         valueArr.push(cardValue);
         });
-    
-    console.log(valueArr) 
-    
+         
+    console.log(valueArr)
+
     //Combinations to count 15, TWO cards ---- need to find a more efficient algorithm... can probably do this in one search
-    if (valueArr[0] + valueArr[1] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[2] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[2] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[2] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[2] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
+    if (valueArr[0] + valueArr[1] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[2] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[2] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[2] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[2] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
 
     //Combinations to count 15, THREE cards
-    if (valueArr[0] + valueArr[1] + valueArr[2] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[1] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[1] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[2] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[2] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[2] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[2] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[2] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
+    if (valueArr[0] + valueArr[1] + valueArr[2] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[1] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[1] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[2] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[2] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[2] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[2] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[2] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
     
     //Combinations to count 15, FOUR cards
-    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[3] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[1] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[0] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
-    if (valueArr[1] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
+    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[3] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[1] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[0] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
+    if (valueArr[1] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
 
     //Combinations to count 15, FIVE cards
-    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {
-        fifteens.push(true)
-    }
+    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {fifteens.push(true)}
 
+    // 2 points or each 15
     playerPoints += (fifteens.length*2)
-
     console.log(playerPoints)
 }
 
@@ -181,7 +129,7 @@ countingFifteens(sampleHand)
 //Flush
 
 
-// =========================================================== Start Game =========================================================================== //
+// ========================================================================== Start Game =================================================================================== //
 
 // Shuffle and deal hands
 function shuffleDeck (fullDeck) {
@@ -203,16 +151,14 @@ function dealHands(shuffledCards) {
 
     console.log("Player Hand ", playerHand, playerHand.length)
     console.log("Computer Hand ", computerHand, computerHand.length)
-    // console.log("Remaining Cards ", remainingCards, remainingCards.length)
+    console.log("Remaining Cards ", remainingCards, remainingCards.length)
 
 }
 
 // shuffleDeck(fullDeck)
 
 
-
-
-
+//========================================================================= Notes =============================================================================================//
 //Before cards are placed to the crib, the opponent will need to send two cards to the crib based off best calculated outcome. I will need to define the rules of the points and which cards to prioritize. It cannot send 2 random cards
 //The player will need to use the cards they select on the interface, will need to use ES6 syntax for "this". Will need to find a way for the player to select (toggle) card. Same for counting, start by computer counting all
 //Will need to define who gets crib first and who lays cards first, this will need to alternate
