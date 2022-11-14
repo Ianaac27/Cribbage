@@ -62,6 +62,124 @@ const cardsClubs = [
 
 const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 
+//Counting Points
+//Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
+
+var sampleHand = [{suit: "Clubs", type: "Five", value: 5}, {suit: "Hearts", type: "Five", value: 5},{suit: "Clubs", type: "King", value: 10},{suit: "Spades", type: "Six", value: 6},{suit: "Spades", type: "Four", value: 4}]
+
+//15's
+function countingFifteens(hand) {
+    // if the sum of any value is 15, give the player 2 points for each 15 counted
+    let playerPoints = 0;
+    let valueArr = []
+    let fifteens = [];
+    
+    hand.forEach(function (card) {
+        var cardValue = card.value;
+        valueArr.push(cardValue);
+        });
+    
+    console.log(valueArr) 
+    
+    //Combinations to count 15, TWO cards ---- need to find a more efficient algorithm... can probably do this in one search
+    if (valueArr[0] + valueArr[1] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[2] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[2] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[2] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[2] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+
+    //Combinations to count 15, THREE cards
+    if (valueArr[0] + valueArr[1] + valueArr[2] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[1] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[1] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[2] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[2] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[2] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[2] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[2] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    
+    //Combinations to count 15, FOUR cards
+    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[3] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[1] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[0] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+    if (valueArr[1] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+
+    //Combinations to count 15, FIVE cards
+    if (valueArr[0] + valueArr[1] + valueArr[2] + valueArr[3] + valueArr[4] === 15) {
+        fifteens.push(true)
+    }
+
+    playerPoints += (fifteens.length*2)
+
+    console.log(playerPoints)
+}
+
+countingFifteens(sampleHand)
+
+
+//Runs
+//Pairs
+//Knobs
+//Flush
+
 
 // =========================================================== Start Game =========================================================================== //
 
@@ -89,14 +207,9 @@ function dealHands(shuffledCards) {
 
 }
 
-shuffleDeck(fullDeck)
+// shuffleDeck(fullDeck)
 
-//Need to come up with algoirthm to count points
-//15's
-//Runs
-//Pairs
-//Knobs
-//Flush
+
 
 
 
