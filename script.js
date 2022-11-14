@@ -1,63 +1,63 @@
-//===========================================================  DECK OF CARDS {suit, type, value, order, image1, image 2} ================================================================//
+//===========================================================  DECK OF CARDS {suit, type, value, order, topcard, image1, image 2} ================================================================//
 const cardsHearts = [
-    {suit: "Hearts", type: "Ace", value: 1, order:1},
-    {suit: "Hearts", type: "Two", value: 2, order:2},
-    {suit: "Hearts", type: "Three", value: 3, order:3},
-    {suit: "Hearts", type: "Four", value: 4, order:4},
-    {suit: "Hearts", type: "Five", value: 5, order:5},
-    {suit: "Hearts", type: "Six", value: 6, order:6},
-    {suit: "Hearts", type: "Seven", value: 7, order:7},
-    {suit: "Hearts", type: "Eight", value: 8, order:8},
-    {suit: "Hearts", type: "Nine", value: 9, order:9},
-    {suit: "Hearts", type: "Ten", value: 10, order:10},
-    {suit: "Hearts", type: "Jack", value: 10, order:11},
-    {suit: "Hearts", type: "Queen", value: 10, order:12},
-    {suit: "Hearts", type: "King", value: 10, order:13},
+    {suit: "Hearts", type: "Ace", value: 1, order:1, topcard: false},
+    {suit: "Hearts", type: "Two", value: 2, order:2, topcard: false},
+    {suit: "Hearts", type: "Three", value: 3, order:3, topcard: false},
+    {suit: "Hearts", type: "Four", value: 4, order:4, topcard: false},
+    {suit: "Hearts", type: "Five", value: 5, order:5, topcard: false},
+    {suit: "Hearts", type: "Six", value: 6, order:6, topcard: false},
+    {suit: "Hearts", type: "Seven", value: 7, order:7, topcard: false},
+    {suit: "Hearts", type: "Eight", value: 8, order:8, topcard: false},
+    {suit: "Hearts", type: "Nine", value: 9, order:9, topcard: false},
+    {suit: "Hearts", type: "Ten", value: 10, order:10, topcard: false},
+    {suit: "Hearts", type: "Jack", value: 10, order:11, topcard: false},
+    {suit: "Hearts", type: "Queen", value: 10, order:12, topcard: false},
+    {suit: "Hearts", type: "King", value: 10, order:13, topcard: false},
      ]
 const cardsDiamonds = [
-    {suit: "Diamonds", type: "Ace", value: 1, order:1},
-    {suit: "Diamonds", type: "Two", value: 2, order:2},
-    {suit: "Diamonds", type: "Three", value: 3, order:3},
-    {suit: "Diamonds", type: "Four", value: 4, order:4},
-    {suit: "Diamonds", type: "Five", value: 5, order:5},
-    {suit: "Diamonds", type: "Six", value: 6, order:6},
-    {suit: "Diamonds", type: "Seven", value: 7, order:7},
-    {suit: "Diamonds", type: "Eight", value: 8, order:8},
-    {suit: "Diamonds", type: "Nine", value: 9, order:9},
-    {suit: "Diamonds", type: "Ten", value: 10, order:10},
-    {suit: "Diamonds", type: "Jack", value: 10, order:11},
-    {suit: "Diamonds", type: "Queen", value: 10, order:12},
-    {suit: "Diamonds", type: "King", value: 10, order:13},
+    {suit: "Diamonds", type: "Ace", value: 1, order:1, topcard: false},
+    {suit: "Diamonds", type: "Two", value: 2, order:2, topcard: false},
+    {suit: "Diamonds", type: "Three", value: 3, order:3, topcard: false},
+    {suit: "Diamonds", type: "Four", value: 4, order:4, topcard: false},
+    {suit: "Diamonds", type: "Five", value: 5, order:5, topcard: false},
+    {suit: "Diamonds", type: "Six", value: 6, order:6, topcard: false},
+    {suit: "Diamonds", type: "Seven", value: 7, order:7, topcard: false},
+    {suit: "Diamonds", type: "Eight", value: 8, order:8, topcard: false},
+    {suit: "Diamonds", type: "Nine", value: 9, order:9, topcard: false},
+    {suit: "Diamonds", type: "Ten", value: 10, order:10, topcard: false},
+    {suit: "Diamonds", type: "Jack", value: 10, order:11, topcard: false},
+    {suit: "Diamonds", type: "Queen", value: 10, order:12, topcard: false},
+    {suit: "Diamonds", type: "King", value: 10, order:13, topcard: false},
      ]
 const cardsSpades = [
-    {suit: "Spades", type: "Ace", value: 1, order:1},
-    {suit: "Spades", type: "Two", value: 2, order:2},
-    {suit: "Spades", type: "Three", value: 3, order:3},
-    {suit: "Spades", type: "Four", value: 4, order:4},
-    {suit: "Spades", type: "Five", value: 5, order:5},
-    {suit: "Spades", type: "Six", value: 6, order:6},
-    {suit: "Spades", type: "Seven", value: 7, order:7},
-    {suit: "Spades", type: "Eight", value: 8, order:8},
-    {suit: "Spades", type: "Nine", value: 9, order:9},
-    {suit: "Spades", type: "Ten", value: 10, order:10},
-    {suit: "Spades", type: "Jack", value: 10, order:11},
-    {suit: "Spades", type: "Queen", value: 10, order:12},
-    {suit: "Spades", type: "King", value: 10, order:13},
+    {suit: "Spades", type: "Ace", value: 1, order:1, topcard: false},
+    {suit: "Spades", type: "Two", value: 2, order:2, topcard: false},
+    {suit: "Spades", type: "Three", value: 3, order:3, topcard: false},
+    {suit: "Spades", type: "Four", value: 4, order:4, topcard: false},
+    {suit: "Spades", type: "Five", value: 5, order:5, topcard: false},
+    {suit: "Spades", type: "Six", value: 6, order:6, topcard: false},
+    {suit: "Spades", type: "Seven", value: 7, order:7, topcard: false},
+    {suit: "Spades", type: "Eight", value: 8, order:8, topcard: false},
+    {suit: "Spades", type: "Nine", value: 9, order:9, topcard: false},
+    {suit: "Spades", type: "Ten", value: 10, order:10, topcard: false},
+    {suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},
+    {suit: "Spades", type: "Queen", value: 10, order:12, topcard: false},
+    {suit: "Spades", type: "King", value: 10, order:13, topcard: false},
      ]
 const cardsClubs = [
-    {suit: "Clubs", type: "Ace", value: 1, order:1},
-    {suit: "Clubs", type: "Two", value: 2, order:2},
-    {suit: "Clubs", type: "Three", value: 3, order:3},
-    {suit: "Clubs", type: "Four", value: 4, order:4},
-    {suit: "Clubs", type: "Five", value: 5, order:5},
-    {suit: "Clubs", type: "Six", value: 6, order:6},
-    {suit: "Clubs", type: "Seven", value: 7, order:7},
-    {suit: "Clubs", type: "Eight", value: 8, order:8},
-    {suit: "Clubs", type: "Nine", value: 9, order:9},
-    {suit: "Clubs", type: "Ten", value: 10, order:10},
-    {suit: "Clubs", type: "Jack", value: 10, order:11},
-    {suit: "Clubs", type: "Queen", value: 10, order:12},
-    {suit: "Clubs", type: "King", value: 10, order:13},
+    {suit: "Clubs", type: "Ace", value: 1, order:1, topcard: false},
+    {suit: "Clubs", type: "Two", value: 2, order:2, topcard: false},
+    {suit: "Clubs", type: "Three", value: 3, order:3, topcard: false},
+    {suit: "Clubs", type: "Four", value: 4, order:4, topcard: false},
+    {suit: "Clubs", type: "Five", value: 5, order:5, topcard: false},
+    {suit: "Clubs", type: "Six", value: 6, order:6, topcard: false},
+    {suit: "Clubs", type: "Seven", value: 7, order:7, topcard: false},
+    {suit: "Clubs", type: "Eight", value: 8, order:8, topcard: false},
+    {suit: "Clubs", type: "Nine", value: 9, order:9, topcard: false},
+    {suit: "Clubs", type: "Ten", value: 10, order:10, topcard: false},
+    {suit: "Clubs", type: "Jack", value: 10, order:11, topcard: false},
+    {suit: "Clubs", type: "Queen", value: 10, order:12, topcard: false},
+    {suit: "Clubs", type: "King", value: 10, order:13, topcard: false},
      ]
 
 const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
@@ -65,7 +65,9 @@ const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 //=============================================================================== COUNTING POINTS ===========================================================================//
 //Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
 
-var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5}, {suit: "Hearts", type: "Five", value: 5, order:5},{suit: "Clubs", type: "King", value: 10, order:13},{suit: "Spades", type: "Six", value: 6, order:6},{suit: "Spades", type: "Four", value: 4, order:4}]
+var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Hearts", type: "Five", value: 5, order:5, topcard: false},{suit: "Clubs", type: "King", value: 10, order:13, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Spades", type: "Four", value: 4, order:4, topcard: true}]
+
+console.log(sampleHand);
 
 function countHand(hand) {
     let playerPointsHand = 0;
@@ -119,12 +121,14 @@ function countingFifteens(hand, playerPointsHand) {
 
     //2 points or each 15
     playerPointsHand += (fifteens.length*2)
-    console.log("15 ", playerPointsHand)
+    console.log("15's ", playerPointsHand)
 
     countingRuns(hand,playerPointsHand)
 }
 
-//----------------------------- COUNTING ALL RUNS IN HAND ----------------------------
+//----------------------------- COUNTING ALL RUNS IN HAND ----------------------------//
+//If at least 3 cards are in numerical order, give 3 points. Give an additional point for each card beyond a run of 3
+
 function countingRuns(hand,playerPointsHand) {
     let orderArr = []
     hand.forEach(function (card) {
@@ -189,9 +193,39 @@ function countingRuns(hand,playerPointsHand) {
         console.log("run16 ", playerPointsHand)
     }
 
+    console.log("run total ", playerPointsHand)
+
+    countingPairs(hand, playerPointsHand);
 }
 
-//Pairs
+// --------------------- COUNTING ALL PAIRS IN HAND ---------------------------- //
+//For every card that is the same type (a pair of two's), give the player 2 points for each pair counted
+
+function countingPairs(hand, playerPointsHand) {
+    let typeArr = []
+    let pairs = [];    
+    hand.forEach(function (card) {
+        var cardType = card.type;
+        typeArr.push(cardType);
+        });
+
+    //Combinations for all pairs - TWO cards
+    if (typeArr[0] === typeArr[1]) {pairs.push(true)}
+    if (typeArr[0] === typeArr[2]) {pairs.push(true)}
+    if (typeArr[0] === typeArr[3]) {pairs.push(true)}
+    if (typeArr[0] === typeArr[4]) {pairs.push(true)}
+    if (typeArr[1] === typeArr[2]) {pairs.push(true)}
+    if (typeArr[1] === typeArr[3]) {pairs.push(true)}
+    if (typeArr[1] === typeArr[4]) {pairs.push(true)}
+    if (typeArr[2] === typeArr[3]) {pairs.push(true)}
+    if (typeArr[2] === typeArr[4]) {pairs.push(true)}
+    if (typeArr[3] === typeArr[4]) {pairs.push(true)}
+
+    //2 points or each pair
+    console.log("pairs ", pairs)
+    playerPointsHand += (pairs.length*2)
+    console.log("pairs ", playerPointsHand)
+}
 //Knobs
 //Flush
 
