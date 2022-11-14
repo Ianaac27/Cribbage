@@ -65,7 +65,7 @@ const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 //=============================================================================== COUNTING POINTS ===========================================================================//
 //Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
 
-var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Hearts", type: "Five", value: 5, order:5, topcard: false},{suit: "Clubs", type: "King", value: 10, order:13, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Spades", type: "Four", value: 4, order:4, topcard: true}]
+var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Hearts", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Spades", type: "Four", value: 4, order:4, topcard: true}]
 
 console.log(sampleHand);
 
@@ -136,8 +136,6 @@ function countingRuns(hand,playerPointsHand) {
         orderArr.push(cardOrder);
         });
     orderArr.sort(function(a, b){return a-b})
-         
-    // console.log("order array ", orderArr)
 
     //Combinations for a run of THREE
     if (orderArr[0] < orderArr[1] < orderArr[2] && (orderArr[2] - orderArr[1] === 1) && (orderArr[1] - orderArr[0] === 1)) { playerPointsHand += 3;
@@ -222,12 +220,40 @@ function countingPairs(hand, playerPointsHand) {
     if (typeArr[3] === typeArr[4]) {pairs.push(true)}
 
     //2 points or each pair
-    console.log("pairs ", pairs)
     playerPointsHand += (pairs.length*2)
     console.log("pairs ", playerPointsHand)
+
+    checkKnobs(hand, playerPointsHand);
 }
-//Knobs
-//Flush
+// --------------------- CHECKING FOR KNOBS IN HAND ---------------------------- //
+//Check if hand holds a Jack matching the same suit as the topcard
+
+function checkKnobs(hand, playerPointsHand) {
+    //check for card type, suit, and topcard
+    let jackSuit = []
+    let topSuit = []    
+
+    hand.forEach(function (card) {
+        var cardType = card.type;
+        var cardSuit = card.suit;
+        var topCard = card.topcard;
+
+        if (topCard === true) { topSuit.push(cardSuit)}
+        if (cardType === "Jack") { jackSuit.push(cardSuit)}
+    });
+   
+    if (jackSuit[0] === topSuit[0]) { playerPointsHand += 1;}
+    if (jackSuit[1] === topSuit[0]) { playerPointsHand += 1;}
+    if (jackSuit[2] === topSuit[0]) { playerPointsHand += 1;}
+    if (jackSuit[3] === topSuit[0]) { playerPointsHand += 1;}
+
+    console.log("knobs ", playerPointsHand)
+}
+// --------------------- CHECKING FOR FLUSH IN HAND ---------------------------- //
+//Check if
+function checkFlush() {
+
+}
 
 countHand(sampleHand)
 
