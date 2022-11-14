@@ -1,12 +1,71 @@
-const cardsHearts = ["Ah", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "Jh", "Qh", "Kh"]
-const cardsDiamonds = ["Ad", "2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "10d", "Jd", "Qd", "Kd"]
-const cardsSpades = ["As", "2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "10s", "Js", "Qs", "Ks"]
-const cardsClubs = ["Ac", "2c", "3c", "4c", "5c", "6c", "7c", "8c", "9h", "10h", "Jh", "Qh", "Kh"]
+//Cards {suit, type, value, image1, image 2}
+const cardsHearts = [
+    {suit: "Hearts", type: "Ace", value: 1},
+    {suit: "Hearts", type: "Two", value: 2},
+    {suit: "Hearts", type: "Three", value: 3},
+    {suit: "Hearts", type: "Four", value: 4},
+    {suit: "Hearts", type: "Five", value: 5},
+    {suit: "Hearts", type: "Six", value: 6},
+    {suit: "Hearts", type: "Seven", value: 7},
+    {suit: "Hearts", type: "Eight", value: 8},
+    {suit: "Hearts", type: "Nine", value: 9},
+    {suit: "Hearts", type: "Ten", value: 10},
+    {suit: "Hearts", type: "Jack", value: 10},
+    {suit: "Hearts", type: "Queen", value: 10},
+    {suit: "Hearts", type: "King", value: 10},
+     ]
+const cardsDiamonds = [
+    {suit: "Diamonds", type: "Ace", value: 1},
+    {suit: "Diamonds", type: "Two", value: 2},
+    {suit: "Diamonds", type: "Three", value: 3},
+    {suit: "Diamonds", type: "Four", value: 4},
+    {suit: "Diamonds", type: "Five", value: 5},
+    {suit: "Diamonds", type: "Six", value: 6},
+    {suit: "Diamonds", type: "Seven", value: 7},
+    {suit: "Diamonds", type: "Eight", value: 8},
+    {suit: "Diamonds", type: "Nine", value: 9},
+    {suit: "Diamonds", type: "Ten", value: 10},
+    {suit: "Diamonds", type: "Jack", value: 10},
+    {suit: "Diamonds", type: "Queen", value: 10},
+    {suit: "Diamonds", type: "King", value: 10},
+     ]
+const cardsSpades = [
+    {suit: "Spades", type: "Ace", value: 1},
+    {suit: "Spades", type: "Two", value: 2},
+    {suit: "Spades", type: "Three", value: 3},
+    {suit: "Spades", type: "Four", value: 4},
+    {suit: "Spades", type: "Five", value: 5},
+    {suit: "Spades", type: "Six", value: 6},
+    {suit: "Spades", type: "Seven", value: 7},
+    {suit: "Spades", type: "Eight", value: 8},
+    {suit: "Spades", type: "Nine", value: 9},
+    {suit: "Spades", type: "Ten", value: 10},
+    {suit: "Spades", type: "Jack", value: 10},
+    {suit: "Spades", type: "Queen", value: 10},
+    {suit: "Spades", type: "King", value: 10},
+     ]
+const cardsClubs = [
+    {suit: "Clubs", type: "Ace", value: 1},
+    {suit: "Clubs", type: "Two", value: 2},
+    {suit: "Clubs", type: "Three", value: 3},
+    {suit: "Clubs", type: "Four", value: 4},
+    {suit: "Clubs", type: "Five", value: 5},
+    {suit: "Clubs", type: "Six", value: 6},
+    {suit: "Clubs", type: "Seven", value: 7},
+    {suit: "Clubs", type: "Eight", value: 8},
+    {suit: "Clubs", type: "Nine", value: 9},
+    {suit: "Clubs", type: "Ten", value: 10},
+    {suit: "Clubs", type: "Jack", value: 10},
+    {suit: "Clubs", type: "Queen", value: 10},
+    {suit: "Clubs", type: "King", value: 10},
+     ]
 
 const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 
-// Shuffle and deal hands, this will start round 1
 
+// =========================================================== Start Game =========================================================================== //
+
+// Shuffle and deal hands
 function shuffleDeck (fullDeck) {
     let j, x, i;
 
@@ -24,9 +83,9 @@ function dealHands(shuffledCards) {
     let computerHand = shuffledCards.slice(6,12);
     let remainingCards = shuffledCards.slice(12,52);
 
-    console.log(playerHand, playerHand.length)
-    console.log(computerHand, computerHand.length)
-    console.log(remainingCards, remainingCards.length)
+    console.log("Player Hand ", playerHand, playerHand.length)
+    console.log("Computer Hand ", computerHand, computerHand.length)
+    // console.log("Remaining Cards ", remainingCards, remainingCards.length)
 
 }
 
