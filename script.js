@@ -65,9 +65,9 @@ const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 //=============================================================================== COUNTING POINTS ===========================================================================//
 //Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
 
-var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Hearts", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Spades", type: "Four", value: 4, order:4, topcard: true}]
+var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Spades", type: "Queen", value: 10, order:12, topcard: false},{suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Clubs", type: "Four", value: 4, order:4, topcard: true}]
 
-console.log(sampleHand);
+// console.log(sampleHand);
 
 function countHand(hand) {
     let playerPointsHand = 0;
@@ -238,8 +238,8 @@ function checkKnobs(hand, playerPointsHand) {
         var cardSuit = card.suit;
         var topCard = card.topcard;
 
-        if (topCard === true) { topSuit.push(cardSuit)}
-        if (cardType === "Jack") { jackSuit.push(cardSuit)}
+        if (topCard === true) { topSuit.push(cardSuit)} else return;
+        if (cardType === "Jack") { jackSuit.push(cardSuit)} else return;
     });
    
     if (jackSuit[0] === topSuit[0]) { playerPointsHand += 1;}
@@ -248,14 +248,33 @@ function checkKnobs(hand, playerPointsHand) {
     if (jackSuit[3] === topSuit[0]) { playerPointsHand += 1;}
 
     console.log("knobs ", playerPointsHand)
+
+    checkFlush(hand, playerPointsHand);
 }
 // --------------------- CHECKING FOR FLUSH IN HAND ---------------------------- //
-//Check if
-function checkFlush() {
+//Check if hand contains 4 cards of the same suit, not including top card, 
+//If topcard is also same suit, then add an additional point
 
+function checkFlush(hand, playerPointsHand) {
+    let handSuit = []
+    let topSuit = []    
+
+    hand.forEach(function (card) {
+        var cardSuit = card.suit;
+        var topCard = card.topcard;
+
+        if (topCard === true) { topSuit.push(cardSuit)}
+        else (handSuit.push(cardSuit))
+    });
+
+    if (handSuit[0] === handSuit[1] && handSuit[1] === handSuit[2] && handSuit[2] === handSuit[3] && handSuit[0] === topSuit[0]){ playerPointsHand += 5;} 
+    else if (handSuit[0] === handSuit[1] && handSuit[1] === handSuit[2] && handSuit[2] === handSuit[3]){ playerPointsHand += 4;}
+
+    console.log("flush ", playerPointsHand)
+    
 }
 
-countHand(sampleHand)
+// countHand(sampleHand)
 
 // ========================================================================== START GAME =================================================================================== //
 
@@ -273,17 +292,22 @@ function shuffleDeck (fullDeck) {
     }
 
 function dealHands(shuffledCards) {       
-    let playerHand = shuffledCards.slice(0,6);
-    let computerHand = shuffledCards.slice(6,12);
-    let remainingCards = shuffledCards.slice(12,52);
+    
+    let playerHand = shuffledCards.slice(0,5); //Sample random hand 
+
+    // let playerHand = shuffledCards.slice(0,6);
+    // let computerHand = shuffledCards.slice(6,12);
+    // let remainingCards = shuffledCards.slice(12,52);
 
     console.log("Player Hand ", playerHand, playerHand.length)
-    console.log("Computer Hand ", computerHand, computerHand.length)
-    console.log("Remaining Cards ", remainingCards, remainingCards.length)
+    // console.log("Computer Hand ", computerHand, computerHand.length)
+    // console.log("Remaining Cards ", remainingCards, remainingCards.length)
+
+    countHand(playerHand)
 
 }
 
-// shuffleDeck(fullDeck)
+shuffleDeck(fullDeck)
 
 
 //========================================================================= NOTES =============================================================================================//
