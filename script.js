@@ -65,9 +65,19 @@ const fullDeck = cardsHearts.concat(cardsDiamonds, cardsClubs, cardsSpades)
 //=============================================================================== COUNTING POINTS ===========================================================================//
 //Make the rules for counting, and then check with the players hands, the players hand will need to be passed to these functions
 
-var sampleHand = [{suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, {suit: "Spades", type: "Queen", value: 10, order:12, topcard: false},{suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},{suit: "Spades", type: "Six", value: 6, order:6, topcard: false},{suit: "Hearts", type: "Eight", value: 8, order:8, topcard: true}]
+//Game score, first to 121 wins!
+let playerScore = 0;
+let opponentScore = 0;
 
-console.log("sample hand ", sampleHand);
+var sampleHand = [
+    {suit: "Clubs", type: "Five", value: 5, order:5, topcard: false}, 
+    {suit: "Spades", type: "Five", value: 5, order:5, topcard: false},
+    {suit: "Spades", type: "Jack", value: 10, order:11, topcard: false},
+    {suit: "Spades", type: "Six", value: 6, order:6, topcard: false},
+    {suit: "Spades", type: "Four", value: 4, order:4, topcard: true}
+]
+
+// console.log("sample hand ", sampleHand);
 
 function countHand(hand) {
     let playerPointsHand = 0;
@@ -273,12 +283,11 @@ function checkFlush(hand, playerPointsHand) {
     
 }
 
-countHand(sampleHand)
+// countHand(sampleHand)
 
 // ========================================================================== START GAME =================================================================================== //
-
-// Shuffle and deal hands
-function shuffleDeck (fullDeck) {
+//Algorithm to shuffle deck
+function shuffleDeck(){
     let j, x, i;
 
     for (i = fullDeck.length - 1; i > 0; i--) {
@@ -287,23 +296,80 @@ function shuffleDeck (fullDeck) {
             fullDeck[i] = fullDeck[j];
             fullDeck[j] = x;
         }
-        dealHands(fullDeck);
     }
 
-function dealHands(shuffledCards) {       
-    let playerHand = shuffledCards.slice(0,6);
-    let computerHand = shuffledCards.slice(6,12);
-    let remainingCards = shuffledCards.slice(12,52);
+//The deck will be shuffled and the player and opponent will each draw a random card. Lowest card gets the crib first.
+function startGame(){
+    shuffleDeck(fullDeck);
 
-    console.log("Player Hand ", playerHand, playerHand.length)
-    console.log("Computer Hand ", computerHand, computerHand.length)
-    console.log("Remaining Cards ", remainingCards, remainingCards.length)
+    console.log(fullDeck[0].order, fullDeck[1].order)
 
-    // countHand(playerHand)
+    if (fullDeck[0].order === fullDeck[1].order) {
+        console.log("Reshuffle")
+        startGame();
+    } else if (fullDeck[0].order < fullDeck[1].order) {
+        console.log("Player goes first!")
+        shuffleDeckPlayer();
+    } else {
+        console.log("Opponent goes first!")
+        shuffleDeckOpponent();
+    }
 
 }
 
-// shuffleDeck(fullDeck)
+// ---------------------- SHUFFLE AND DEAL HANDS --------------------- //
+//Player's turn to shuffle and deal, player keeps crib
+function shuffleDeckPlayer () {
+        shuffleDeck()
+        dealHandsPlayer(fullDeck);
+    }
+
+//Opponents's turn to shuffle and deal, player keeps crib
+function shuffleDeckOpponent () {
+        shuffleDeck()
+        dealHandsOpponent(fullDeck);
+    }    
+
+function dealHandsPlayer(shuffledCards) {       
+    let playerHand = shuffledCards.slice(0,6);
+    let opponentHand = shuffledCards.slice(6,12);
+    let remainingCards = shuffledCards.slice(12,52);
+
+    console.log("Player Hand ", playerHand, playerHand.length)
+    console.log("Opponent Hand ", opponentHand, opponentHand.length)
+    // console.log("Remaining Cards ", remainingCards, remainingCards.length)
+    
+    // playerCrib();
+}
+
+function dealHandsOpponent(shuffledCards) {       
+    let playerHand = shuffledCards.slice(0,6);
+    let opponentHand = shuffledCards.slice(6,12);
+    let remainingCards = shuffledCards.slice(12,52);
+
+    console.log("Player Hand ", playerHand, playerHand.length)
+    console.log("Opponent Hand ", opponentHand, opponentHand.length)
+    // console.log("Remaining Cards ", remainingCards, remainingCards.length)
+
+    // opponentCrib();
+}
+
+startGame(fullDeck)
+
+// -------------------- SEND CARDS TO THE CRIB ----------------------//
+
+const playerCribHand = [];
+const opponentCribHand = [];
+
+//When the player has the crib
+function playerCrib() {
+
+}
+
+
+//When the opponent has the crib
+
+
 
 
 //========================================================================= NOTES =============================================================================================//
